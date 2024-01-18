@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  smtp-mail-service:
+    image: smtp-mail-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    networks:
+      - core-service-network
+    environment:
+      RABBIT_MQ_HOST: rabbitmq
+      RABBIT_USERNAME: user
+      RABBIT_PASSWORD_PASSWORD: password
+      MAIL_HOST: smtp.mail.ru
+      MAIL_PORT: 465
+      MAIL_USERNAME: your_mail@mail.ru
+      MAIL_PASSWORD: your_password
+
+networks:
+  core-service-network:
+    external: true
