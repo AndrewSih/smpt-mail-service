@@ -1,0 +1,23 @@
+server:
+  port: 8082
+spring:
+  rabbitmq:
+    host: ${RABBIT_MQ_HOST:localhost}
+    port: 5672
+    username: ${RABBIT_USERNAME:user}
+    password: ${RABBIT_PASSWORD_PASSWORD:password}
+  mail:
+    host: ${MAIL_HOST:smtp.mail.ru}
+    port: ${MAIL_PORT:465}
+    username: ${MAIL_USERNAME:your_mail@mail.ru}
+    password: ${MAIL_PASSWORD:your_password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            required: true
+            enable: true
+queue:
+  send-to-mail-service: send_to_mail_service_queue
+  send-from-mail-service: send_from_mail_service_queue
